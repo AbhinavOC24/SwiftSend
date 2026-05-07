@@ -1,4 +1,4 @@
-import sendMessage from "../producer";
+import { sendMessageToQueue } from "../services/queue.service";
 
 const testPayload = {
     sendTo: "22uec001@lnmiit.ac.in",
@@ -8,7 +8,7 @@ const testPayload = {
 
 console.log("Sending test message to SQS...");
 
-sendMessage(JSON.stringify(testPayload))
+sendMessageToQueue(JSON.stringify(testPayload))
     .then(() => {
         console.log("Test message sent successfully!");
         process.exit(0);
